@@ -14,6 +14,7 @@ usermod -aG ubridge user
 usermod -aG libvirt user
 usermod -aG kvm user
 
+service qemu-kvm start
 service libvirtd start
 
-exec /usr/sbin/gosu user "$@"
+exec /usr/sbin/gosu root "$@"
