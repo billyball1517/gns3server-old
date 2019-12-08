@@ -10,7 +10,9 @@ RUN apt update \
     && apt update \
     && apt install -y gns3-server gns3-iou \
     && curl -fsSL https://get.docker.com -o get-docker.sh \
-    && sh get-docker.sh
+    && sh get-docker.sh \
+    && apt install -y locales \
+    && locale-gen en_US.UTF-8
     
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
