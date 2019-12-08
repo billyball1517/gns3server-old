@@ -12,11 +12,10 @@ RUN apt update \
     && curl -fsSL https://get.docker.com -o get-docker.sh \
     && sh get-docker.sh \
     && apt install -y locales \
-    && locale-gen en_US.UTF-8 \
-    && echo "172.17.0.1" >> /etc/resolv.conf
+    && locale-gen en_US.UTF-8
     
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+# COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+# RUN chmod +x /usr/local/bin/entrypoint.sh
+# ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 CMD /usr/bin/gns3server
