@@ -13,9 +13,7 @@ export HOME=/home/user
 usermod -aG ubridge user
 usermod -aG libvirt user
 usermod -aG kvm user
-usermod -aG docker user
 
-service docker start
 service libvirtd start
 
 exec /usr/sbin/gosu root "$@"
