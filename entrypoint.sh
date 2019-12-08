@@ -17,8 +17,4 @@ usermod -aG ubridge user
 usermod -aG libvirt user
 usermod -aG group user
 
-virsh net-start default
-virsh net-autostart default
-virsh net-list --all
-
 exec /usr/sbin/gosu user "$@"
