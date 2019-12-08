@@ -30,8 +30,6 @@ And you will get an output similar to:
 
 `kvm:x:130:`
 
-And then repeat the previous step.
-
 So we know the GID for /dev/kvm is "130"
 
 Next, we need to make a gns3 user on the local machine.
