@@ -11,7 +11,7 @@ echo "Starting with UID : $USER_ID"
 useradd -m -s /bin/bash -u $USER_ID -o user
 export HOME=/home/user
 
-groupadd -g -o $GROUP_ID group
+groupadd -g $GROUP_ID -o group
 
 usermod -aG ubridge user
 usermod -aG libvirt user
