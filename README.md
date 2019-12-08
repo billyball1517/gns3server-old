@@ -4,7 +4,7 @@
 NOTES:
 
 - This image not support nested docker containers or IOU images. QEMU/KVM only!
-- This image is only the "server" component of GNS3, for the GUI component, I reccomend pip3 (ie. sudo pip3 install gns3-gui), more info here: https://docs.gns3.com/1QXVIihk7dsOL7Xr7Bmz4zRzTsJ02wklfImGuHwTlaA4/index.html#h.xo8m7q5xitv6
+- This image is only the "server" component of GNS3, for the GUI component, I recommend pip3 (ie. sudo pip3 install gns3-gui), more info here: https://docs.gns3.com/1QXVIihk7dsOL7Xr7Bmz4zRzTsJ02wklfImGuHwTlaA4/index.html#h.xo8m7q5xitv6
 
 I created this to use "GNS3" on .rpm based distros (RHEL, CentOS, Fedora, Suse, etc.). While there are ports to most of these systems, they are often broken or lag behind.
 
@@ -36,10 +36,10 @@ And you will get an output similar to:
 
 So we know the UID for the user gns3 is "1001" and the home folder is "/home/gns3"
 
-Finally, execute the following command, remembering to substitue the values you found out in the previous steps:
+Finally, execute the following command, remembering to substitute the values you found out in the previous steps:
 
 `docker run -d --name=gns3_session --network=host --restart=always --privileged -e LOCAL_USER_ID=<localuserid> -e LOCAL_GROUP_ID=<localgroupid> -v <localfolder>:/home/user billyball1517/gns3server`
 
 `docker run -d --name=gns3_session --network=host --restart=always --privileged -e LOCAL_USER_ID=1001 -e LOCAL_GROUP_ID=130 -v /home/gns3:/home/user billyball1517/gns3server`
 
-Since the gns3 data is made persistant in the /home/gns3 folder, upgrading is easy. Simply delete the running container, pull the image again, and start the container with the same command you used previously.
+Since the gns3 data is made persistent in the /home/gns3 folder, upgrading is easy. Simply delete the running container, pull the image again, and start the container with the same command you used previously.
