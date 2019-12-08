@@ -56,4 +56,4 @@ Since the gns3 data is made persistent in the /home/gns3 folder, upgrading is ea
 
 # ADDITIONAL INFO
 
-Make sure the path when creating projects is `/home/user/......`  rather than whatever local user account.
+Make sure the path when creating projects is `/home/user/......`  rather than your local user account home folder.
