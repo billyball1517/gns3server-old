@@ -15,4 +15,7 @@ usermod -aG libvirt user
 usermod -aG kvm user
 usermod -aG docker user
 
+service docker start
+service libvirtd start
+
 exec /usr/sbin/gosu user "$@"
