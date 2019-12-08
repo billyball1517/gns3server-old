@@ -5,7 +5,7 @@
 NOTES:
 
 - This image not support nested docker containers or IOU images. QEMU/KVM only!
-- This image is only the "server" component of GNS3, for the GUI component, I reccomend pip3 (ie. sudo pip3 install gns3-gui), more info here: https://docs.gns3.com/1QXVIihk7dsOL70Xr7Bmz4zRzTsJ02wklfImGuHwTlaA4/index.html#h.xo8m7q5xitv6
+- This image is only the "server" component of GNS3, for the GUI component, I reccomend pip3 (ie. sudo pip3 install gns3-gui), more info here: https://docs.gns3.com/1QXVIihk7dsOL70Xr7Bmz4zRzTsJ02wklfImGuHwTlaA4/index.html
 
 I created this to use "GNS3" on .rpm based distros (RHEL, CentOS, Fedora, Suse, etc.). While there are ports to most of these systems, they are often broken or lag behind.
 
