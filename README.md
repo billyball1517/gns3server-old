@@ -10,6 +10,16 @@ I created this to use "GNS3" on .rpm based distros (RHEL, CentOS, Fedora, Suse, 
 
 The container installs gns3-server, creates a dummy "user" account, mounts the dummy user /home folder to the specified local folder, and runs the server as that user.
 
+# The BAD news
+
+Unfortunately, if you want to use KVM acceleration (YOU DO!), you need to set up some stuff on the host. I realize that this takes away a lot of the convenience of docker, but we'll just have to live with it.
+
+Here is a good guide for fedora, I'm sure that a similar guide exists for every distro. I believe in you.
+
+https://computingforgeeks.com/how-to-install-kvm-on-fedora/
+
+Basically just execute: `yum -y install bridge-utils libvirt virt-install qemu-kvm` and you should be good to go.
+
 # Steps
 
 For QEMU/KVM to work, the dummy user needs to be able to access /dev/kvm on the host machine. To do this we need to know the GID of the "kvm" group on the host. Execute:
@@ -19,10 +29,6 @@ For QEMU/KVM to work, the dummy user needs to be able to access /dev/kvm on the 
 And you will get an output similar to:
 
 `kvm:x:130:`
-
-If the above command dosn't work, don't panic. Depending on your setup, the "kvm" group might not exist. Unfortunatly, the kvm group needs to exist on the host in order to proceed. Typically this means that the qemu-kvm package needs to be installed on the host. To do that on an .rpm based system execute:
-
-`yum install -y qemu-kvm`
 
 And then repeat the previous step.
 
