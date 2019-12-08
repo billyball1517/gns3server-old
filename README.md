@@ -20,7 +20,15 @@ And you will get an output similar to:
 
 `kvm:x:130:`
 
-So we know the GID for /dev/kvm is "130"
+If the above command dosn't work, don't panic. Depending on your setup, the "kvm" group might not exist. Execute:
+
+`ls -l /dev/kvm`
+
+And you will get an output similar to:
+
+`crw------- 1 root root 10, 130 Dec  8 16:03 /dev/kvm`
+
+Either way, we know the GID for /dev/kvm is "130"
 
 Next, we need to make a gns3 user on the local machine.
 
