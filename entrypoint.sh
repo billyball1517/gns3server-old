@@ -16,4 +16,4 @@ usermod -aG kvm user
 
 service libvirtd start
 
-exec /usr/sbin/gosu root "$@"
+exec /usr/sbin/gosu user "$@"
