@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update \
     && apt full-upgrade -y \
-    && apt install -y software-properties-common curl gosu locales\
+    && apt install -y software-properties-common gosu locales\
     && locale-gen en_US.UTF-8 \
     && add-apt-repository -y ppa:gns3/ppa \
     && apt update \
