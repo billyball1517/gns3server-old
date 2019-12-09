@@ -18,7 +18,7 @@ Here is a good guide for fedora, I'm sure that a similar guide exists for every 
 
 https://computingforgeeks.com/how-to-install-kvm-on-fedora/
 
-Basically just execute: `yum -y install bridge-utils libvirt virt-install qemu-kvm` and you should be good to go.
+Basically just execute: `yum -y install qemu-kvm` and you should be good to go.
 
 # Steps
 
