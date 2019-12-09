@@ -8,18 +8,6 @@ NOTES:
 
 The container installs gns3-server, creates a dummy "user" account, mounts the dummy user /home folder to the specified local folder, and runs the server as that user.
 
-# The BAD news
-
-Unfortunately, if you want to use KVM acceleration (YOU DO!), you either need to:
-
-A. Run the gns3server process as root (BAD!!!)
-
-B. Install `qemu-kvm` on the host.
-
-I realize that this takes away a lot of the convenience of docker, but we'll just have to live with it.
-
-Basically just execute: `yum install -y qemu-kvm` and you should be good to go.
-
 # Steps
 
 For QEMU/KVM to work, the dummy user needs to be able to access /dev/kvm on the host machine. To do this we need to know the GID of the "kvm" group on the host. Execute:
@@ -29,6 +17,8 @@ For QEMU/KVM to work, the dummy user needs to be able to access /dev/kvm on the 
 And you will get an output similar to:
 
 `kvm:x:130:`
+
+*NOTE*
 
 So we know the GID for /dev/kvm is "130"
 
