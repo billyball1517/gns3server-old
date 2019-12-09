@@ -4,21 +4,20 @@
 NOTES:
 
 - This image does not support nested docker containers or IOU images. QEMU/KVM only!
-- This image is only the "server" component of GNS3, for the GUI component, I recommend pip3 (ie. sudo pip3 install gns3-gui), more info here: https://docs.gns3.com/1QXVIihk7dsOL7Xr7Bmz4zRzTsJ02wklfImGuHwTlaA4/index.html#h.xo8m7q5xitv6
-
-I created this to use "GNS3" on .rpm based distros (RHEL, CentOS, Fedora, Suse, etc.). While there are ports to most of these systems, they are often broken or lag behind.
+- This image is only the "server" component of GNS3, for the GUI component, I recommend pip3 (ie. just run: `sudo pip3 install sip pyqt5 gns3-gui`), more info here: https://docs.gns3.com/1QXVIihk7dsOL7Xr7Bmz4zRzTsJ02wklfImGuHwTlaA4/index.html#h.xo8m7q5xitv6
 
 The container installs gns3-server, creates a dummy "user" account, mounts the dummy user /home folder to the specified local folder, and runs the server as that user.
 
 # The BAD news
 
-Unfortunately, if you want to use KVM acceleration (YOU DO!), you need to set up some stuff on the host. I realize that this takes away a lot of the convenience of docker, but we'll just have to live with it.
+Unfortunately, if you want to use KVM acceleration (YOU DO!), you either need to:
 
-Here is a good guide for fedora, I'm sure that a similar guide exists for every distro. I believe in you.
+A. Run the gns3server process as root (BAD!!!)
+B. Install `qemu-kvm` on the host.
 
-https://computingforgeeks.com/how-to-install-kvm-on-fedora/
+I realize that this takes away a lot of the convenience of docker, but we'll just have to live with it.
 
-Basically just execute: `yum -y install qemu-kvm` and you should be good to go.
+Basically just execute: `yum install -y qemu-kvm` and you should be good to go.
 
 # Steps
 
@@ -54,13 +53,14 @@ So in our example, we get:
 
 `docker run -d --name=gns3_session --dns=8.8.8.8 --restart=always --privileged -e LOCAL_USER_ID=1001 -e LOCAL_GROUP_ID=130 -v /home/gns3:/home/user billyball1517/gns3server`
 
+To find the ip address of the running container, run:
+
+`docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' gns3_session`
+
+When you run the GNS3 GUI, simply point it to that IP address.
+
 Since the gns3 data is made persistent in the /home/gns3 folder, upgrading is easy. Simply delete the running container, pull the image again, and start the container with the same command you used previously.
 
 # ADDITIONAL INFO
 
 Make sure the path when creating projects is `/home/user/......`  rather than your local user account home folder.
-
-To find the ip address of the running container, run:
-
-`docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' gns3_session`
-
