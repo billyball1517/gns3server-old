@@ -14,6 +14,7 @@ RUN apt update \
 RUN add-apt-repository -y ppa:gns3/ppa
 
 RUN apt update && apt install -y \
+    gosu \
     locales \
     python3-pip \
     qemu-system-x86 \
