@@ -4,13 +4,18 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update \
     && apt full-upgrade -y \
+    
     && apt install -y software-properties-common gosu locales curl \
+    
+    && curl -fsSL https://get.docker.com -o get-docker.sh \
+    && sh get-docker.sh \
+    
     && locale-gen en_US.UTF-8 \
+    
     && add-apt-repository -y ppa:gns3/ppa \
     && apt update \
     && apt install -y gns3-server \
-    && curl -fsSL https://get.docker.com -o get-docker.sh \
-    && sh get-docker.sh
+
     
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
