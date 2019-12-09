@@ -8,7 +8,7 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8 
 
 RUN apt update \
-    && apt full-upgrade \
+    && apt full-upgrade -y \
     && apt install -y software-properties-common
     
 RUN add-apt-repository -y ppa:gns3/ppa
