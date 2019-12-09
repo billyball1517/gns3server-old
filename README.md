@@ -48,11 +48,11 @@ So we know the UID for the user gns3 is "1001" and the home folder is "/home/gns
 
 Finally, execute the following command, remembering to substitute the values you found out in the previous steps:
 
-`docker run -d --name=gns3_session --network=host --restart=always --privileged -e LOCAL_USER_ID=<localuserid> -e LOCAL_GROUP_ID=<localgroupid> -v <localfolder>:/home/user billyball1517/gns3server`
+`docker run -d --name=gns3_session --dns=8.8.8.8 --restart=always --privileged -e LOCAL_USER_ID=<localuserid> -e LOCAL_GROUP_ID=<localgroupid> -v <localfolder>:/home/user billyball1517/gns3server`
 
 So in our example, we get:
 
-`docker run -d --name=gns3_session --network=host --restart=always --privileged -e LOCAL_USER_ID=1001 -e LOCAL_GROUP_ID=130 -v /home/gns3:/home/user billyball1517/gns3server`
+`docker run -d --name=gns3_session --dns=8.8.8.8 --restart=always --privileged -e LOCAL_USER_ID=1001 -e LOCAL_GROUP_ID=130 -v /home/gns3:/home/user billyball1517/gns3server`
 
 Since the gns3 data is made persistent in the /home/gns3 folder, upgrading is easy. Simply delete the running container, pull the image again, and start the container with the same command you used previously.
 
@@ -60,11 +60,7 @@ Since the gns3 data is made persistent in the /home/gns3 folder, upgrading is ea
 
 Make sure the path when creating projects is `/home/user/......`  rather than your local user account home folder.
 
-docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' gns3_session
+To find the ip address of the running container, run:
 
-docker run -it --name=gns3_session --restart=always --privileged --dns=8.8.8.8 -e LOCAL_USER_ID=1001 -e LOCAL_GROUP_ID=130 -v /home/gns3:/home/user -v /var/run/docker.sock:/var/run/docker.sock  billyball1517/gns3server /bin/bash
+`docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' gns3_session`
 
-mkdir -p /usr/lib/python3.6/site-packages/gns3server/compute/docker/resources/
-https://raw.githubusercontent.com/GNS3/gns3-server/master/gns3server/compute/docker/resources/init.sh
-https://github.com/GNS3/gns3-server/blob/master/gns3server/compute/docker/resources/bin/busybox?raw=true
-https://raw.githubusercontent.com/GNS3/gns3-server/master/gns3server/compute/docker/resources/etc/udhcpc/default.script
