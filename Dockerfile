@@ -7,10 +7,10 @@ RUN apt update \
     
     && apt install -y software-properties-common gosu locales curl \
     
+    && locale-gen en_US.UTF-8 \
+    
     && curl -fsSL https://get.docker.com -o get-docker.sh \
     && sh get-docker.sh \
-    
-    && locale-gen en_US.UTF-8 \
     
     && add-apt-repository -y ppa:gns3/ppa \
     && apt update \
