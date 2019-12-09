@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -y \
     libvirt-bin \
     x11vnc \
     curl
+
 RUN curl -fsSL https://get.docker.com -o get-docker.sh \
     && sh get-docker.sh
 
