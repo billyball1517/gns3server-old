@@ -17,6 +17,10 @@ usermod -aG ubridge user
 usermod -aG libvirt user
 usermod -aG group user
 
+mkdir -p /home/user/.config/GNS3/
+mv -n /gns3_server.conf /home/user/.config/GNS3/gns3_server.conf
+chown -R user:user /home/user
+
 service libvirtd start
 
 exec /usr/sbin/gosu user "$@"
