@@ -63,3 +63,8 @@ Make sure the path when creating projects is `/home/user/......`  rather than yo
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' gns3_session
 
 docker run -it --name=gns3_session --restart=always --privileged --dns=8.8.8.8 -e LOCAL_USER_ID=1001 -e LOCAL_GROUP_ID=130 -v /home/gns3:/home/user -v /var/run/docker.sock:/var/run/docker.sock  billyball1517/gns3server /bin/bash
+
+mkdir -p /usr/lib/python3.6/site-packages/gns3server/compute/docker/resources/
+https://raw.githubusercontent.com/GNS3/gns3-server/master/gns3server/compute/docker/resources/init.sh
+https://github.com/GNS3/gns3-server/blob/master/gns3server/compute/docker/resources/bin/busybox?raw=true
+https://raw.githubusercontent.com/GNS3/gns3-server/master/gns3server/compute/docker/resources/etc/udhcpc/default.script
