@@ -18,9 +18,9 @@ And you will get an output similar to:
 
 `kvm:x:130:`
 
-*NOTE*
-
 So we know the GID for /dev/kvm is "130"
+
+*NOTE: Some distros don't have a kvm group even if /dev/kvm exists. Don't ask me why. If this is the case, your best bet is to install the `qemu-kvm` package.*
 
 Next, we need to make a gns3 user on the local machine.
 
@@ -58,4 +58,4 @@ I have chosen to enable authentication by default on this image. I can't for the
 
 # ADDITIONAL INFO
 
-Make sure the path when creating projects is `/home/user/......`  rather than your local user account home folder.
+Make sure the path when creating projects the path is `/home/user/......`  rather than your local user account home folder.
