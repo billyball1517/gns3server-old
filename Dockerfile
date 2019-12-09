@@ -13,7 +13,7 @@ RUN apt update \
     
 RUN add-apt-repository -y ppa:gns3/ppa
 
-RUN apt-get update && apt-get install -y \
+RUN apt update && apt install -y \
     locales \
     python3-pip \
     qemu-system-x86 \
@@ -27,7 +27,7 @@ RUN curl -fsSL https://get.docker.com -o get-docker.sh \
 
 RUN locale-gen en_US.UTF-8
 
-RUN apt-get install -y vpcs ubridge
+RUN apt update && apt install -y vpcs ubridge
 
 RUN pip3 install gns3-server
 
