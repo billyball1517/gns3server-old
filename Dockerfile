@@ -27,3 +27,9 @@ RUN locale-gen en_US.UTF-8
 RUN apt-get install -y vpcs ubridge
 
 RUN pip3 install gns3-server
+
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
+CMD tail -f /dev/null
