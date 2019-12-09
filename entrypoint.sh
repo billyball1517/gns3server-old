@@ -15,6 +15,7 @@ groupadd -g $GROUP_ID -o group
 
 usermod -aG ubridge user
 usermod -aG libvirt user
+usermod -aG docker user
 usermod -aG group user
 
-exec /usr/sbin/gosu user "$@"
+exec /usr/sbin/gosu root "$@"
