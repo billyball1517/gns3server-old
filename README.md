@@ -61,3 +61,5 @@ Since the gns3 data is made persistent in the /home/gns3 folder, upgrading is ea
 Make sure the path when creating projects is `/home/user/......`  rather than your local user account home folder.
 
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' gns3_session
+
+docker run -it --name=gns3_session --restart=always --privileged --dns=8.8.8.8 -e LOCAL_USER_ID=1001 -e LOCAL_GROUP_ID=130 -v /home/gns3:/home/user -v /var/run/docker.sock:/var/run/docker.sock  billyball1517/gns3server /bin/bash
