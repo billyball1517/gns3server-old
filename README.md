@@ -13,6 +13,7 @@ The container installs gns3-server, creates a dummy "user" account, mounts the d
 Unfortunately, if you want to use KVM acceleration (YOU DO!), you either need to:
 
 A. Run the gns3server process as root (BAD!!!)
+
 B. Install `qemu-kvm` on the host.
 
 I realize that this takes away a lot of the convenience of docker, but we'll just have to live with it.
