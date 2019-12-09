@@ -18,7 +18,7 @@ RUN apt update \
     
     && add-apt-repository -y ppa:gns3/ppa \
     && apt update \
-    && apt install -y gns3-server \
+    && apt install -y gns3-server
 
     
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
