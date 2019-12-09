@@ -10,7 +10,7 @@ RUN apt update \
     && add-apt-repository -y ppa:projectatomic/ppa \
     && apt update \
     && apt install -y gns3-server podman \
-    && sudo mkdir /etc/containers \
+    && mkdir /etc/containers \
     && curl https://raw.githubusercontent.com/projectatomic/registries/master/registries.fedora -o /etc/containers/registries.conf \
     && curl https://raw.githubusercontent.com/containers/skopeo/master/default-policy.json -o /etc/containers/policy.json \
     && ln -s /usr/bin/podman /usr/bin/docker
