@@ -58,4 +58,4 @@ I have chosen to enable authentication by default on this image. I can't for the
 
 # ADDITIONAL INFO
 
-Make sure the path when creating projects the path is `/home/user/......`  rather than your local user account home folder.
+Make sure the path when creating projects is `/home/user/......`  rather than your local user account home folder.
