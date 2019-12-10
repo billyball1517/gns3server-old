@@ -52,10 +52,6 @@ When you run the GNS3 GUI, simply point it to that IP address.
 
 Since the gns3 data is made persistent in the /home/gns3 folder, upgrading is easy. Simply delete the running container, pull the image again, and start the container with the same command you used previously.
 
-# Security!
-
-I have chosen to enable authentication by default on this image. I can't for the life of me understand why this isn't the case already. The default `username/password` is `gns3admin/gns3password`. You can change all the authentication settings (including disabling it) in the `/home/gns3/.config/GNS3/gns3_server.conf` configuration file.
-
 # ADDITIONAL INFO
 
 Make sure the path when creating projects is `/home/user/......`  rather than your local user account home folder.
