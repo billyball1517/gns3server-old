@@ -34,7 +34,7 @@ And you will get an output similar to:
 
 `gns3:x:1001:1001::/var/lib/gns3:/usr/sbin/nologin`
 
-So we know the UID for the user gns3 is "1001" and the home folder is "/home/gns3"
+So we know the UID for the user gns3 is "1001" and the home folder is "/var/lib/gns3"
 
 Finally, execute the following command, remembering to substitute the values you found out in the previous steps:
 
