@@ -24,7 +24,7 @@ So we know the GID for /dev/kvm is "130"
 
 Next, we need to make a gns3 user on the local machine.
 
-`useradd -m -s /usr/sbin/nologin gns3`
+`useradd -m -s /usr/sbin/nologin -d /var/lib/gns3 gns3`
 
 We need to know the UID and home folder for the gns3 user. Execute:
 
@@ -32,7 +32,7 @@ We need to know the UID and home folder for the gns3 user. Execute:
 
 And you will get an output similar to:
 
-`gns3:x:1001:1001::/home/gns3:/usr/sbin/nologin`
+`gns3:x:1001:1001::/var/lib/gns3:/usr/sbin/nologin`
 
 So we know the UID for the user gns3 is "1001" and the home folder is "/home/gns3"
 
@@ -42,7 +42,7 @@ Finally, execute the following command, remembering to substitute the values you
 
 So in our example, we get:
 
-`docker run -d --name=gns3_session --dns=8.8.8.8 --restart=always --privileged -e LOCAL_USER_ID=1001 -e LOCAL_GROUP_ID=130 -v /home/gns3:/home/user billyball1517/gns3server`
+`docker run -d --name=gns3_session --dns=8.8.8.8 --restart=always --privileged -e LOCAL_USER_ID=1001 -e LOCAL_GROUP_ID=130 -v /var/lib/gns3:/home/user billyball1517/gns3server`
 
 To find the ip address of the running container, run:
 
