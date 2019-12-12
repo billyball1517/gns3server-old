@@ -50,7 +50,7 @@ To find the ip address of the running container, run:
 
 When you run the GNS3 GUI, simply point it to that IP address.
 
-Since the gns3 data is made persistent in the /home/gns3 folder, upgrading is easy. Simply delete the running container, pull the image again, and start the container with the same command you used previously.
+Since the gns3 data is made persistent in the /var/lib/gns3 folder, upgrading is easy. Simply delete the running container, pull the image again, and start the container with the same command you used previously.
 
 # ADDITIONAL INFO
 
