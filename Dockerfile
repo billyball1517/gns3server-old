@@ -18,4 +18,4 @@ RUN apt update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
    
-CMD /usr/bin/gns3server
+CMD service libvirtd start && /usr/bin/gns3server
